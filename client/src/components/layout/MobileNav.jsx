@@ -5,7 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { FiMenu, FiX, FiSearch, FiUser, FiShoppingCart } from "react-icons/fi";
 import { NAV_LINKS } from "@/components/helper/navbar/navArrObj";
-import Container from "@/components/ui/Container";
+import Container from "@/components/shared/commons/Container";
 
 export default function MobileNav({ cartCount = 0 }) {
   const pathname = usePathname();

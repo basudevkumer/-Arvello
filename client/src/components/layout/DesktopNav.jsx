@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { FiSearch, FiUser, FiShoppingCart } from "react-icons/fi";
-import Container from "@/components/ui/Container";
+import Container from "@/components/shared/commons/Container";
 
 /**
  * Add / remove / reorder nav items here — the UI updates automatically.
