@@ -8,7 +8,7 @@ import {
   FaHeart,
 } from "react-icons/fa";
 import { FiMapPin, FiPhone, FiMail } from "react-icons/fi";
-import Container from "@/components/ui/Container";
+import Container from "@/components/shared/commons/Container";
 
 /**
  * Edit these to change footer content — no JSX touching required.
