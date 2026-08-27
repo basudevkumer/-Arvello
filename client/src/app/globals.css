@@ -1,26 +1,643 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* =========================================================
+   DESIGN SYSTEM
+   Tailwind CSS v4
+   ========================================================= */
+
+@theme {
+  /* =======================================================
+     FONT FAMILY
+     ======================================================= */
+
+  --font-sans:
+    "Manrope", Inter, ui-sans-serif, system-ui, -apple-system,
+    BlinkMacSystemFont, "Segoe UI", sans-serif;
+
+  /* =======================================================
+     COLOR — BRAND (raw palette)
+     ======================================================= */
+
+  --color-green-900: #063c35;
+  --color-green-800: #084a41;
+  --color-green-700: #0b5a4e;
+  --color-green-600: #167064;
+  --color-green-500: #278276;
+
+  --color-green-100: #e7f3f0;
+  --color-green-50: #f3f9f7;
+
+  /* =======================================================
+     COLOR — ACCENT (raw palette)
+     ======================================================= */
+
+  --color-gold-700: #b97824;
+  --color-gold-600: #c88a32;
+  --color-gold-500: #d9a14a;
+  --color-gold-300: #ebcb91;
+  --color-gold-100: #f8eedb;
+
+  /* =======================================================
+     COLOR — NEUTRAL
+     ======================================================= */
+
+  --color-neutral-950: #17201e;
+  --color-neutral-900: #202825;
+  --color-neutral-800: #303936;
+  --color-neutral-700: #555e5a;
+  --color-neutral-600: #707875;
+  --color-neutral-500: #919894;
+  --color-neutral-400: #b7bcb9;
+  --color-neutral-300: #d5d9d6;
+  --color-neutral-200: #e6e8e6;
+  --color-neutral-100: #f2f3f1;
+  --color-neutral-50: #f8f8f6;
+
+  --color-white: #ffffff;
+
+  /* =======================================================
+     COLOR — STATUS (raw palette)
+     ======================================================= */
+
+  --color-success-700: #2f7d5c;
+  --color-warning-700: #c98a2e;
+  --color-error-700: #c94a45;
+  --color-info-700: #39759a;
+
+  /* =======================================================
+     COLOR — SEMANTIC / BRAND
+     (references raw palette above — change palette once,
+      these update automatically)
+     ======================================================= */
+
+  --color-primary: var(--color-green-900);
+  --color-primary-hover: var(--color-green-800);
+  --color-primary-active: var(--color-green-700);
+  --color-primary-light: var(--color-green-100);
+
+  /* =======================================================
+     COLOR — SEMANTIC / ACCENT
+     ======================================================= */
+
+  --color-accent: var(--color-gold-600);
+  --color-accent-hover: var(--color-gold-700);
+  --color-accent-light: var(--color-gold-100);
+
+  /* =======================================================
+     COLOR — TEXT
+     ======================================================= */
+
+  --color-text-primary: var(--color-neutral-950);
+  --color-text-secondary: var(--color-neutral-700);
+  --color-text-tertiary: var(--color-neutral-600);
+  --color-text-muted: var(--color-neutral-500);
+  --color-text-disabled: var(--color-neutral-400);
+  --color-text-inverse: var(--color-white);
+
+  /* =======================================================
+     COLOR — BACKGROUND
+     ======================================================= */
+
+  --color-background: var(--color-white);
+  --color-background-soft: var(--color-neutral-50);
+  --color-background-muted: var(--color-neutral-100);
+
+  /* =======================================================
+     COLOR — SURFACE
+     ======================================================= */
+
+  --color-surface: var(--color-white);
+  --color-surface-soft: var(--color-neutral-50);
+  --color-surface-muted: var(--color-neutral-100);
+
+  --color-surface-primary: var(--color-green-900);
+  --color-surface-primary-soft: var(--color-green-100);
+
+  --color-surface-accent: var(--color-gold-100);
+  --color-surface-selected: var(--color-green-100);
+  --color-surface-disabled: var(--color-neutral-100);
+
+  /* =======================================================
+     COLOR — BORDER
+     ======================================================= */
+
+  --color-border: var(--color-neutral-200);
+  --color-border-strong: var(--color-neutral-300);
+  --color-border-primary: var(--color-green-900);
+  --color-border-selected: var(--color-green-600);
+  --color-border-disabled: var(--color-neutral-200);
+
+  /* =======================================================
+     COLOR — ICON
+     ======================================================= */
+
+  --color-icon-primary: var(--color-neutral-800);
+  --color-icon-secondary: var(--color-neutral-600);
+  --color-icon-muted: var(--color-neutral-500);
+  --color-icon-brand: var(--color-green-900);
+  --color-icon-inverse: var(--color-white);
+  --color-icon-disabled: var(--color-neutral-400);
+
+  /* =======================================================
+     COLOR — STATUS
+     ======================================================= */
+
+  --color-success: var(--color-success-700);
+  --color-warning: var(--color-warning-700);
+  --color-error: var(--color-error-700);
+  --color-info: var(--color-info-700);
+
+  /* =======================================================
+     COLOR — FOCUS / DIVIDER / OVERLAY
+     ======================================================= */
+
+  --color-focus: var(--color-info-700);
+
+  --color-divider: var(--color-neutral-200);
+  --color-divider-inverse: rgb(255 255 255 / 12%);
+
+  --color-overlay-dark: rgb(6 60 53 / 72%);
+  --color-overlay-medium: rgb(6 60 53 / 45%);
+  --color-overlay-light: rgb(6 60 53 / 20%);
+
+  /* =======================================================
+     TYPOGRAPHY — FONT WEIGHT
+     ======================================================= */
+
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-extrabold: 800;
+
+  /* =======================================================
+     TYPOGRAPHY — FONT SIZE
+     (namespace fixed: --text-* generates text-* utilities,
+      e.g. --text-16 -> class "text-16")
+     ======================================================= */
+
+  --text-10: 10px;
+  --text-11: 11px;
+  --text-12: 12px;
+  --text-13: 13px;
+  --text-14: 14px;
+  --text-16: 16px;
+  --text-18: 18px;
+  --text-20: 20px;
+  --text-24: 24px;
+  --text-28: 28px;
+  --text-32: 32px;
+  --text-36: 36px;
+  --text-40: 40px;
+  --text-48: 48px;
+  --text-56: 56px;
+  --text-64: 64px;
+
+  /* =======================================================
+     TYPOGRAPHY — LINE HEIGHT
+     (namespace fixed: --leading-* generates leading-* utilities)
+     ======================================================= */
+
+  --leading-none: 1;
+  --leading-tight: 1.1;
+  --leading-snug: 1.2;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.6;
+  --leading-loose: 1.75;
+
+  /* =======================================================
+     TYPOGRAPHY — LETTER SPACING
+     (namespace fixed: --tracking-* generates tracking-* utilities)
+     ======================================================= */
+
+  --tracking-tighter: -0.04em;
+  --tracking-tight: -0.02em;
+  --tracking-normal: 0;
+  --tracking-wide: 0.02em;
+  --tracking-wider: 0.04em;
+  --tracking-uppercase: 0.06em;
+
+  /* =======================================================
+     RADIUS
+     ======================================================= */
+
+  --radius-xs: 4px;
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-2xl: 20px;
+  --radius-3xl: 24px;
+  --radius-full: 9999px;
+
+  /* =======================================================
+     SHADOW
+     ======================================================= */
+
+  --shadow-sm: 0 1px 3px rgb(20 30 28 / 8%);
+  --shadow-md: 0 4px 12px rgb(20 30 28 / 8%);
+  --shadow-lg: 0 12px 32px rgb(20 30 28 / 10%);
+  --shadow-xl: 0 20px 50px rgb(20 30 28 / 12%);
+
+  /* =======================================================
+     MOTION
+     ======================================================= */
+
+  --ease-standard: cubic-bezier(0.2, 0, 0, 1);
+
+  --transition-fast: 150ms;
+  --transition-normal: 250ms;
+  --transition-slow: 350ms;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+/* =========================================================
+   BASE
+   ========================================================= */
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply m-0 bg-background text-text-primary font-sans antialiased;
+
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply m-0 text-text-primary font-sans;
+  }
+
+  h1 {
+    @apply text-[clamp(32px,3.5vw,48px)] leading-tight font-bold tracking-tight;
+  }
+
+  h2 {
+    @apply text-[clamp(28px,3vw,40px)] leading-[1.15] font-bold tracking-tight;
+  }
+
+  h3 {
+    @apply text-[clamp(24px,2.5vw,32px)] leading-snug font-bold;
+  }
+
+  h4 {
+    @apply text-[clamp(20px,2vw,24px)] leading-[1.25] font-bold;
+  }
+
+  h5 {
+    @apply text-20 leading-[1.3] font-semibold;
+  }
+
+  h6 {
+    @apply text-18 leading-[1.35] font-semibold;
+  }
+
+  p {
+    @apply m-0;
+  }
+
+  button,
+  input,
+  textarea,
+  select {
+    font: inherit;
+  }
+
+  button {
+    cursor: pointer;
+  }
+
+  button:disabled,
+  input:disabled,
+  textarea:disabled,
+  select:disabled {
+    cursor: not-allowed;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  img,
+  svg,
+  video {
+    display: block;
+    max-width: 100%;
+  }
+
+  ::selection {
+    @apply bg-primary text-text-inverse;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-focus);
+    outline-offset: 3px;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* =========================================================
+   COMPONENTS
+   ========================================================= */
+
+@layer components {
+  /* =======================================================
+     DISPLAY TYPOGRAPHY
+     (kept as fluid clamp() sizes on purpose — these need to
+     scale continuously with viewport, not jump between the
+     fixed --text-* steps)
+     ======================================================= */
+
+  .text-display-xl {
+    @apply text-[clamp(42px,5vw,64px)]
+      leading-[1.05]
+      font-bold
+      tracking-[-0.03em];
+  }
+
+  .text-display-lg {
+    @apply text-[clamp(38px,4.5vw,56px)]
+      leading-[1.05]
+      font-bold
+      tracking-tight;
+  }
+
+  /* =======================================================
+     HEADING TYPOGRAPHY
+     ======================================================= */
+
+  .text-h1 {
+    @apply text-[clamp(32px,3.5vw,48px)]
+      leading-tight
+      font-bold
+      tracking-tight;
+  }
+
+  .text-h2 {
+    @apply text-[clamp(28px,3vw,40px)]
+      leading-[1.15]
+      font-bold
+      tracking-tight;
+  }
+
+  .text-h3 {
+    @apply text-[clamp(24px,2.5vw,32px)]
+      leading-snug
+      font-bold;
+  }
+
+  .text-h4 {
+    @apply text-[clamp(20px,2vw,24px)]
+      leading-[1.25]
+      font-bold;
+  }
+
+  /* =======================================================
+     BODY TYPOGRAPHY
+     ======================================================= */
+
+  .text-body-lg {
+    @apply text-[clamp(16px,1.4vw,18px)]
+      leading-relaxed
+      font-normal;
+  }
+
+  .text-body-md {
+    @apply text-16
+      leading-relaxed
+      font-normal;
+  }
+
+  .text-body-sm {
+    @apply text-[clamp(13px,1.2vw,14px)]
+      leading-[20px]
+      font-normal;
+  }
+
+  /* =======================================================
+     LABEL TYPOGRAPHY
+     ======================================================= */
+
+  .text-label-lg {
+    @apply text-16
+      leading-[1.3]
+      font-semibold;
+  }
+
+  .text-label-md {
+    @apply text-14
+      leading-[1.3]
+      font-semibold;
+  }
+
+  .text-label-sm {
+    @apply text-12
+      leading-[1.3]
+      font-semibold
+      tracking-wide;
+  }
+
+  /* =======================================================
+     CAPTION / OVERLINE
+     ======================================================= */
+
+  .text-caption {
+    @apply text-12
+      leading-[1.4]
+      font-medium
+      tracking-[0.01em];
+  }
+
+  .text-overline {
+    @apply text-11
+      leading-snug
+      font-bold
+      uppercase
+      tracking-uppercase;
+  }
+
+  /* =======================================================
+     PRODUCT TYPOGRAPHY
+     ======================================================= */
+
+  .product-name {
+    @apply text-14
+      leading-[1.4]
+      font-semibold;
+  }
+
+  .product-category {
+    @apply text-12
+      leading-[1.4]
+      font-normal
+      text-text-tertiary;
+  }
+
+  .product-price {
+    @apply text-18
+      leading-snug
+      font-bold
+      text-primary;
+  }
+
+  .product-old-price {
+    @apply text-13
+      leading-snug
+      font-normal
+      text-text-muted
+      line-through;
+  }
+
+  /* =======================================================
+     BUTTON
+     ======================================================= */
+
+  .btn {
+    @apply inline-flex
+      min-h-[44px]
+      items-center
+      justify-center
+      rounded-md
+      px-5
+      text-14
+      leading-none
+      font-semibold
+      transition-all
+      duration-250;
+  }
+
+  .btn-primary {
+    @apply bg-primary
+      text-text-inverse
+      hover:bg-primary-hover
+      active:bg-primary-active;
+  }
+
+  .btn-secondary {
+    @apply border
+      border-border-strong
+      bg-surface
+      text-primary
+      hover:border-primary
+      hover:bg-surface-soft;
+  }
+
+  .btn-accent {
+    @apply bg-accent
+      text-text-primary
+      hover:bg-accent-hover;
+  }
+
+  /* =======================================================
+     CARD
+     ======================================================= */
+
+  .card {
+    @apply rounded-lg
+      border
+      border-border
+      bg-surface;
+  }
+
+  .card-elevated {
+    @apply rounded-lg
+      border
+      border-border
+      bg-surface
+      shadow-md;
+  }
+
+  /* =======================================================
+     BADGE
+     ======================================================= */
+
+  .badge {
+    @apply inline-flex
+      min-h-[22px]
+      items-center
+      rounded-sm
+      px-[7px]
+      text-10
+      leading-none
+      font-bold;
+  }
+
+  .badge-sale {
+    @apply bg-accent
+      text-text-primary;
+  }
+
+  .badge-success {
+    @apply bg-primary-light
+      text-primary;
+  }
+}
+
+/* =========================================================
+   CUSTOM UTILITIES — TAILWIND v4
+   NOTE: text-balance / text-pretty removed — Tailwind v4
+   already ships these built in, redefining them here was
+   redundant and risked overriding the built-in behavior.
+   ========================================================= */
+
+@utility transition-theme {
+  transition:
+    background-color var(--transition-normal) var(--ease-standard),
+    border-color var(--transition-normal) var(--ease-standard),
+    color var(--transition-normal) var(--ease-standard),
+    box-shadow var(--transition-normal) var(--ease-standard),
+    transform var(--transition-fast) var(--ease-standard);
+}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 768px) {
+  h1 {
+    @apply text-32;
+  }
+
+  h2 {
+    @apply text-28;
+  }
+
+  h3 {
+    @apply text-24;
+  }
+
+  h4 {
+    @apply text-20;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    @apply text-32;
+  }
+
+  h2 {
+    @apply text-[26px];
+  }
+
+  h3 {
+    @apply text-[22px];
+  }
+
+  h4 {
+    @apply text-20;
+  }
 }
