@@ -1,0 +1,5 @@
+"use client";
+
+export default function VariantSelector({ label, name = "variant", options = [], value, onChange, disabled = false, className = "" }) {
+  return <fieldset className={`grid gap-3 ${className}`} disabled={disabled}><legend className="text-label-md">{label}</legend><div className="flex flex-wrap gap-2">{options.map((option) => { const optionValue = typeof option === "string" ? option : option.value; const optionLabel = typeof option === "string" ? option : option.label; const id = `${name}-${String(optionValue).replace(/\s+/g, "-").toLowerCase()}`; return <label key={optionValue} htmlFor={id} className={`cursor-pointer rounded-md border px-4 py-2 text-14 transition-theme motion-reduce:transition-none ${value === optionValue ? "border-primary bg-surface-selected text-primary" : "border-border-strong text-text-secondary hover:border-primary"}`}><input id={id} name={name} type="radio" value={optionValue} checked={value === optionValue} onChange={() => onChange?.(optionValue)} className="sr-only" />{optionLabel}</label>; })}</div></fieldset>;
+}
