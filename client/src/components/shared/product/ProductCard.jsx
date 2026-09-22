@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { FiHeart } from "react-icons/fi";
+import { FiHeart, FiShoppingCart } from "react-icons/fi";
 import Badge from "@/components/ui/Badge";
 import Button from "@/components/ui/Button";
 import PriceTag from "@/components/ui/PriceTag";
@@ -26,7 +26,19 @@ export default function ProductCard({ product, href, onAddToCart, onWishlist, is
         {category ? <p className="product-category">{category}</p> : null}
         <Link href={productHref} className="product-name line-clamp-2 hover:text-primary">{name}</Link>
         {rating !== undefined ? <RatingStars rating={rating} reviewCount={reviewCount} /> : null}
-        <PriceTag price={price} previousPrice={previousPrice} />
+        <div className="flex items-end justify-between gap-3">
+          <PriceTag price={price} previousPrice={previousPrice} />
+          <button
+            type="button"
+            disabled={!canBuy}
+            onClick={() => onAddToCart?.(product)}
+            aria-label={`${canBuy ? "Add" : "Unavailable:"} ${name} ${canBuy ? "to cart" : ""}`}
+            title={canBuy ? "Add to cart" : "Out of stock"}
+            className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md bg-primary text-text-inverse shadow-sm transition-theme hover:bg-primary-hover disabled:pointer-events-none disabled:opacity-50 motion-reduce:transition-none"
+          >
+            <FiShoppingCart size={18} aria-hidden="true" />
+          </button>
+        </div>
         {onAddToCart ? <Button type="button" size="sm" disabled={!canBuy} onClick={() => onAddToCart(product)}>{canBuy ? "Add to cart" : "Out of stock"}</Button> : null}
       </div>
     </article>

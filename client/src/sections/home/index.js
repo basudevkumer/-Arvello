@@ -1,0 +1,10 @@
+export { default as Hero } from "./Hero";
+export { default as ShopByCategory } from "./ShopByCategory";
+export { default as FeaturedProducts } from "./FeaturedProducts";
+export { default as PromoBanner } from "./PromoBanner";
+export { default as WhyChooseUs } from "./WhyChooseUs";
+export { default as DreamSpaceBanner } from "./DreamSpaceBanner";
+export { default as BestDeals } from "./BestDeals";
+export { default as Testimonials } from "./Testimonials";
+export { default as HomeInspiration } from "./HomeInspiration";
+export { default as Newsletter } from "./Newsletter";
