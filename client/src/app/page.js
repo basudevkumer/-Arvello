@@ -1,9 +1,16 @@
-import React from 'react'
+import { BestDeals, DreamSpaceBanner, FeaturedProducts, Hero, HomeInspiration, Newsletter, PromoBanner, ShopByCategory, Testimonials, WhyChooseUs } from "@/sections/home";
 
-const Home = () => {
-  return (
-    <div>Home</div>
-  )
+export default function Home() {
+  return <>
+    <Hero />
+    <ShopByCategory />
+    <FeaturedProducts />
+    <PromoBanner />
+    <WhyChooseUs />
+    <DreamSpaceBanner />
+    <BestDeals />
+    <Testimonials />
+    <HomeInspiration />
+    <Newsletter />
+  </>;
 }
-
-export default Home

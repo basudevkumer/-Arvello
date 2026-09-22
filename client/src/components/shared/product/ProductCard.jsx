@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { FiHeart } from "react-icons/fi";
+import { FiHeart, FiShoppingCart } from "react-icons/fi";
 import Badge from "@/components/ui/Badge";
 import Button from "@/components/ui/Button";
 import PriceTag from "@/components/ui/PriceTag";
@@ -17,7 +17,7 @@ export default function ProductCard({ product, href, onAddToCart, onWishlist, is
     <article className={`group overflow-hidden rounded-lg border border-border bg-surface transition-theme hover:shadow-md motion-reduce:transition-none ${className}`}>
       <div className="relative aspect-[4/3] overflow-hidden bg-background-muted">
         <Link href={productHref} aria-label={`View ${name}`}>
-          <Image src={image} alt={imageAlt || name} fill sizes="(min-width: 1280px) 280px, (min-width: 768px) 30vw, 50vw" className="object-cover transition-transform duration-350 group-hover:scale-105 motion-reduce:transform-none motion-reduce:transition-none" />
+          <Image src={image} alt={imageAlt || name} width={800} height={600} sizes="(min-width: 1280px) 280px, (min-width: 768px) 30vw, 50vw" className="aspect-[4/3] w-full object-cover transition-transform duration-350 group-hover:scale-105 motion-reduce:transform-none motion-reduce:transition-none" />
         </Link>
         {badge ? <Badge variant="sale" className="absolute left-3 top-3">{badge}</Badge> : null}
         {onWishlist ? <button type="button" onClick={() => onWishlist(product)} aria-pressed={isWishlisted} aria-label={`${isWishlisted ? "Remove" : "Add"} ${name} ${isWishlisted ? "from" : "to"} wishlist`} className="absolute right-3 top-3 rounded-full bg-surface p-2 text-primary shadow-sm transition-theme hover:bg-primary hover:text-text-inverse motion-reduce:transition-none"><FiHeart size={18} className={isWishlisted ? "fill-current" : ""} aria-hidden="true" /></button> : null}
@@ -26,7 +26,19 @@ export default function ProductCard({ product, href, onAddToCart, onWishlist, is
         {category ? <p className="product-category">{category}</p> : null}
         <Link href={productHref} className="product-name line-clamp-2 hover:text-primary">{name}</Link>
         {rating !== undefined ? <RatingStars rating={rating} reviewCount={reviewCount} /> : null}
-        <PriceTag price={price} previousPrice={previousPrice} />
+        <div className="flex items-end justify-between gap-3">
+          <PriceTag price={price} previousPrice={previousPrice} />
+          <button
+            type="button"
+            disabled={!canBuy}
+            onClick={() => onAddToCart?.(product)}
+            aria-label={`${canBuy ? "Add" : "Unavailable:"} ${name} ${canBuy ? "to cart" : ""}`}
+            title={canBuy ? "Add to cart" : "Out of stock"}
+            className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md bg-primary text-text-inverse shadow-sm transition-theme hover:bg-primary-hover disabled:pointer-events-none disabled:opacity-50 motion-reduce:transition-none"
+          >
+            <FiShoppingCart size={18} aria-hidden="true" />
+          </button>
+        </div>
         {onAddToCart ? <Button type="button" size="sm" disabled={!canBuy} onClick={() => onAddToCart(product)}>{canBuy ? "Add to cart" : "Out of stock"}</Button> : null}
       </div>
     </article>

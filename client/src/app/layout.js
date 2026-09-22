@@ -16,11 +16,13 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${manrope.variable} h-full antialiased`}>
-      <body className="min-h-full flex flex-col">
-        <Navbar cartCount={3} />
-        <main className="flex-1">{children}</main>
-        <Footer />
+    <html lang="en" className={`${manrope.variable} antialiased`}>
+      <body className="overflow-x-hidden bg-background">
+        <div className="grid min-h-screen grid-rows-[auto_minmax(0,1fr)_auto]">
+          <Navbar cartCount={3} />
+          <main className="min-h-0 flex-1">{children}</main>
+          <Footer />
+        </div>
       </body>
     </html>
   );

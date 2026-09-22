@@ -1,9 +1,9 @@
-import React from 'react'
+import { ShopBanner, ShopLayout, ShopToolbar } from "@/sections/shop";
 
-const Shop = () => {
-  return (
-    <div>Shop</div>
-  )
+export default function Shop() {
+  return <>
+    <ShopBanner />
+    <ShopToolbar />
+    <ShopLayout />
+  </>;
 }
-
-export default Shop

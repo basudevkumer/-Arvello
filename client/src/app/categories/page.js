@@ -1,9 +1,11 @@
-import React from 'react'
+import { BrowseByRoom, CategoriesBanner, CategoriesCTA, CategoriesGrid, FeaturedCategoryBanner } from "@/sections/categories";
 
-const Category = () => {
-  return (
-    <div>Category</div>
-  )
+export default function Categories() {
+  return <>
+    <CategoriesBanner />
+    <CategoriesGrid />
+    <BrowseByRoom />
+    <FeaturedCategoryBanner />
+    <CategoriesCTA />
+  </>;
 }
-
-export default Category
