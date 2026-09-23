@@ -1,0 +1,6 @@
+import { FaFacebookF, FaInstagram, FaPinterestP, FaYoutube } from "react-icons/fa";
+import Container from "@/components/layout/Container";
+
+const SOCIALS = [{ label: "Instagram", href: "https://instagram.com", icon: FaInstagram }, { label: "Facebook", href: "https://facebook.com", icon: FaFacebookF }, { label: "Pinterest", href: "https://pinterest.com", icon: FaPinterestP }, { label: "YouTube", href: "https://youtube.com", icon: FaYoutube }];
+
+export default function SocialConnect() { return <section className="py-14 lg:py-16"><Container><div className="text-center"><p className="text-overline text-accent">Stay connected</p><h2 className="mt-3 text-h4">Follow Our Journey</h2><p className="mt-3 text-body-md text-text-secondary">Ideas, new pieces, and quiet moments from the workshop.</p><ul className="mt-6 flex justify-center gap-3">{SOCIALS.map(({ label, href, icon: Icon }) => <li key={label}><a href={href} target="_blank" rel="noopener noreferrer" aria-label={`Follow Arvello on ${label}`} className="flex h-10 w-10 items-center justify-center rounded-full border border-border text-icon-secondary transition-theme hover:border-primary hover:bg-primary hover:text-text-inverse"><Icon size={15} aria-hidden="true" /></a></li>)}</ul></div></Container></section>; }

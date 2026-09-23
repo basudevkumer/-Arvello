@@ -1,9 +1,24 @@
-import React from 'react'
+import {
+  ContactBanner,
+  ContactFormAndMap,
+  ContactInfoStrip,
+  FAQSection,
+  SocialConnect,
+} from "@/sections/contact";
 
-const Contact = () => {
+export const metadata = {
+  title: "Contact Us | Arvello",
+  description: "Get in touch with the Arvello team about furniture, orders, and projects.",
+};
+
+export default function ContactPage() {
   return (
-    <div>Contact</div>
-  )
+    <>
+      <ContactBanner />
+      <ContactInfoStrip />
+      <ContactFormAndMap />
+      <FAQSection />
+      <SocialConnect />
+    </>
+  );
 }
-
-export default Contact
