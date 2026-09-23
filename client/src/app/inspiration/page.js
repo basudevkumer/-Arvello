@@ -1,9 +1,21 @@
-import React from 'react'
+import {
+  FeaturedStory,
+  InspirationBanner,
+  InspirationMasonryGrid,
+  InspirationNewsletterCTA,
+  ShopTheLook,
+  TrendingReads,
+} from "@/sections/inspiration";
 
-const Inspiration = () => {
+export default function Inspiration() {
   return (
-    <div>Inspiration</div>
-  )
+    <>
+      <InspirationBanner />
+      <FeaturedStory />
+      <InspirationMasonryGrid />
+      <ShopTheLook />
+      <TrendingReads />
+      <InspirationNewsletterCTA />
+    </>
+  );
 }
-
-export default Inspiration
