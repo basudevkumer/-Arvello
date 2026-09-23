@@ -1,0 +1,9 @@
+export { default as AboutBanner } from "./AboutBanner";
+export { default as OurStory } from "./OurStory";
+export { default as MissionValues } from "./MissionValues";
+export { default as StatsCounter } from "./StatsCounter";
+export { default as Timeline } from "./Timeline";
+export { default as OurProcess } from "./OurProcess";
+export { default as MeetTheTeam } from "./MeetTheTeam";
+export { default as Testimonials } from "@/sections/home/Testimonials";
+export { default as AboutCTA } from "./AboutCTA";
