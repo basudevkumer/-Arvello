@@ -1,9 +1,25 @@
-import React from 'react'
+import {
+  DealBanner,
+  DealOfTheDay,
+  FlashSaleSection,
+  DealCatalog,
+  BundleDeals,
+  ClearanceSection,
+  DealBenefits,
+  DealNewsletterCTA,
+} from "@/sections/deal";
 
-const Deal = () => {
+export default function Deal() {
   return (
-    <div>Deal</div>
-  )
+    <>
+      <DealBanner />
+      <DealOfTheDay />
+      <FlashSaleSection />
+      <DealCatalog />
+      <BundleDeals />
+      <ClearanceSection />
+      <DealBenefits />
+      <DealNewsletterCTA />
+    </>
+  );
 }
-
-export default Deal

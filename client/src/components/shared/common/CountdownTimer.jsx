@@ -2,10 +2,8 @@
 
 import { useEffect, useState } from "react";
 
-export default function CountdownTimer() {
-  const [remaining, setRemaining] = useState(
-    12 * 86400 + 5 * 3600 + 14 * 60 + 20,
-  );
+export default function CountdownTimer({ endAt }) {
+  const [remaining, setRemaining] = useState(() => endAt ? Math.max(0, Math.floor((new Date(endAt).getTime() - Date.now()) / 1000)) : 12 * 86400 + 5 * 3600 + 14 * 60 + 20);
   useEffect(() => {
     const timer = setInterval(
       () => setRemaining((value) => (value > 0 ? value - 1 : 0)),
