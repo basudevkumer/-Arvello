@@ -11,8 +11,8 @@ export default function DealBanner() {
       >
         <HeroBanner
           eyebrow="Curated savings for modern living"
-          title="Deals"
-          description="Thoughtful furniture, exceptional value, and limited-time offers for your home."
+          title="Exclusive Furniture Deals"
+          description="Premium pieces. Better value. Explore current offers on furniture for every room."
           image={imageUrl("photo-1550226891-ef816aed4a98", 1200)}
           imageAlt="Premium furniture in a warm modern living room"
           imagePriority

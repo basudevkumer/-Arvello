@@ -5,14 +5,12 @@ import {
   MissionValues,
   OurProcess,
   OurStory,
-  StatsCounter,
-  Testimonials,
   Timeline,
 } from "@/sections/aboutus";
 
 export const metadata = {
-  title: "About Us | Arvello",
-  description: "Meet the people, process, and purpose behind Arvello furniture.",
+  title: "About Arvello | Furniture Designed for Better Living",
+  description: "Discover the story, values, process, and people behind Arvello furniture.",
 };
 
 export default function AboutUsPage() {
@@ -21,11 +19,9 @@ export default function AboutUsPage() {
       <AboutBanner />
       <OurStory />
       <MissionValues />
-      <StatsCounter />
       <Timeline />
       <OurProcess />
       <MeetTheTeam />
-      <Testimonials />
       <AboutCTA />
     </>
   );

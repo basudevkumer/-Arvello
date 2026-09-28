@@ -7,6 +7,7 @@ import { FiArrowRight, FiPlus } from "react-icons/fi";
 import Container from "@/components/layout/Container";
 import SectionHeading from "@/components/shared/common/SectionHeading";
 import PriceTag from "@/components/ui/PriceTag";
+import RatingStars from "@/components/ui/RatingStars";
 import { products } from "@/lib/data/products";
 import { shopTheLook } from "@/lib/data/inspiration";
 
@@ -60,7 +61,7 @@ export default function ShopTheLook() {
                 {isActive && product ? (
                   <div className="absolute bottom-5 left-1/2 z-10 w-64 -translate-x-1/2 rounded-lg border border-border bg-surface p-3 shadow-lg sm:bottom-7">
                     <Link
-                      href={`/shop?product=${product.id}`}
+                      href={`/shop?category=${encodeURIComponent(product.category)}`}
                       className="flex items-center gap-3"
                       onClick={() => setActiveHotspot(null)}
                     >
@@ -75,7 +76,8 @@ export default function ShopTheLook() {
                         <span className="block line-clamp-2 text-label-md">
                           {product.name}
                         </span>
-                        <PriceTag price={product.price} className="mt-1" />
+                        <RatingStars rating={product.rating} reviewCount={product.reviewCount} size={12} className="mt-1" />
+                        <PriceTag price={product.price} previousPrice={product.previousPrice} className="mt-1" />
                       </span>
                       <FiArrowRight
                         className="ml-auto shrink-0 text-primary"

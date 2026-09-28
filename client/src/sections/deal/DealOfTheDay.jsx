@@ -4,6 +4,7 @@ import Container from "@/components/layout/Container";
 import CountdownTimer from "@/components/shared/common/CountdownTimer";
 import PriceTag from "@/components/ui/PriceTag";
 import Badge from "@/components/ui/Badge";
+import RatingStars from "@/components/ui/RatingStars";
 import { dealOfTheDay } from "@/lib/data/deals";
 
 export default function DealOfTheDay() {
@@ -28,25 +29,20 @@ export default function DealOfTheDay() {
             </Badge>
             <div>
               <h2 className="text-h2 text-text-inverse">{item.name}</h2>
-              <p className="mt-3 max-w-md text-body-md text-white/70">
-                A considered silhouette with lasting comfort, now at an
-                exceptional Arvello price.
-              </p>
+              <p className="mt-3 max-w-md text-body-md text-white/70">Featured {item.category.toLowerCase()} deal from the current Arvello offers.</p>
             </div>
+            <RatingStars rating={item.rating} reviewCount={item.reviewCount} className="text-text-inverse [&_.text-text-secondary]:text-white/70" />
             <PriceTag
               price={item.price}
               previousPrice={item.previousPrice}
-              currency="$"
               className="[&_.product-price]:text-32 [&_.product-price]:text-accent [&_.product-old-price]:text-white/50"
             />
             <div>
-              <p className="mb-3 text-label-sm text-white/70">
-                This offer ends soon
-              </p>
+              <p className="mb-3 text-label-sm text-white/70">{item.stockLeft} available in this offer</p>
               <CountdownTimer endAt={item.dealEndsAt} />
             </div>
             <Link
-              href={`/products/${item.productId}`}
+              href={`/shop?category=${encodeURIComponent(item.category)}`}
               className="btn btn-accent w-fit"
             >
               Grab This Deal <span aria-hidden="true">→</span>

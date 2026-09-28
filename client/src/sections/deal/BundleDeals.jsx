@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Container from "@/components/layout/Container";
 import Badge from "@/components/ui/Badge";
+import PriceTag from "@/components/ui/PriceTag";
 import { bundleDeals, getProduct } from "@/lib/data/deals";
 
 export default function BundleDeals() {
@@ -46,12 +47,7 @@ export default function BundleDeals() {
                   Save {bundle.discountPercent}% across a considered collection
                   of essentials.
                 </p>
-                <div className="flex items-baseline gap-2">
-                  <strong className="product-price">${bundle.price}</strong>
-                  <del className="product-old-price">
-                    ${bundle.previousPrice}
-                  </del>
-                </div>
+                <PriceTag price={bundle.price} previousPrice={bundle.previousPrice} />
                 <Link href="#top-deals" className="btn btn-primary w-fit">
                   View Bundle <span aria-hidden="true">→</span>
                 </Link>

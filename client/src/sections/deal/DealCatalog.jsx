@@ -109,7 +109,7 @@ export function TopDealsGrid({ items }) {
               <ProductCard
                 key={item.id}
                 product={item}
-                href={`/products/${item.productId}`}
+                href={`/shop?category=${encodeURIComponent(item.category)}`}
               />
             ))}
           </div>

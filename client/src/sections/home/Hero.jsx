@@ -2,20 +2,17 @@ import Image from "next/image";
 import Link from "next/link";
 import {
   FiArrowRight,
-  FiCheckCircle,
-  FiPlay,
-  FiRotateCcw,
+  FiCreditCard,
+  FiDollarSign,
   FiShield,
-  FiTruck,
 } from "react-icons/fi";
 import Container from "@/components/layout/Container";
 import { imageUrl } from "./data";
 
 const trust = [
-  [FiTruck, "Free Shipping", "On all orders"],
-  [FiRotateCcw, "Easy Returns", "Within 30 days"],
-  [FiShield, "Secure Payment", "100% safe & secure"],
-  [FiCheckCircle, "24/7 Support", "Always here for you"],
+  [FiDollarSign, "Cash on Delivery", "Shop with confidence"],
+  [FiCreditCard, "bKash", "Easy digital payment"],
+  [FiShield, "EMI Available", "Flexible payment options"],
 ];
 export default function Hero() {
   return (
@@ -37,17 +34,13 @@ export default function Hero() {
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-4">
               <Link href="/shop" className="btn btn-primary min-h-12 px-6">
-                Shop Now <FiArrowRight className="ml-2" />
+                Shop Collection <FiArrowRight className="ml-2" />
               </Link>
               <Link
-                href="#inspiration"
-                className="inline-flex min-h-12 items-center gap-2 px-2 text-label-md text-primary"
+                href="#shop-categories"
+                className="btn btn-secondary min-h-12"
               >
-                <FiPlay
-                  className="rounded-full bg-surface-primary-soft p-2 text-primary"
-                  size={36}
-                />
-                Watch Video
+                Explore Furniture
               </Link>
             </div>
           </div>
@@ -62,7 +55,7 @@ export default function Hero() {
             />
           </div>
         </div>
-        <div className="relative z-10 -mt-6 grid overflow-hidden rounded-xl border border-border bg-surface shadow-md sm:grid-cols-2 lg:grid-cols-4">
+        <div className="relative z-10 -mt-6 grid overflow-hidden rounded-xl border border-border bg-surface shadow-md sm:grid-cols-3">
           {trust.map(([Icon, title, subtitle], index) => (
             <div
               key={title}

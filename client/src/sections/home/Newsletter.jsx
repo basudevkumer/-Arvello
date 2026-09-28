@@ -13,10 +13,10 @@ export default function Newsletter() {
             </span>
             <div>
               <h2 className="text-h4 text-text-inverse">
-                Get Updates & Special Offers
+                Get 10% Off Your First Order
               </h2>
               <p className="mt-1 text-body-sm text-white/70">
-                Subscribe now and never miss a deal.
+                Join for new arrivals, exclusive offers, and furniture inspiration.
               </p>
             </div>
           </div>

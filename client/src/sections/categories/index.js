@@ -3,3 +3,4 @@ export { default as CategoriesGrid } from "./CategoriesGrid";
 export { default as BrowseByRoom } from "./BrowseByRoom";
 export { default as FeaturedCategoryBanner } from "./FeaturedCategoryBanner";
 export { default as CategoriesCTA } from "./CategoriesCTA";
+export { default as CategoryTrustStrip } from "./CategoryTrustStrip";
