@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Container from "@/components/layout/Container";
-import Reveal from "@/components/shared/common/Reveal";
 import { imageUrl } from "@/sections/home/data";
 
 const STORY_PARAGRAPHS = [
@@ -14,7 +13,7 @@ export default function OurStory() {
     <section className="py-16 lg:py-20">
       <Container>
         <div className="grid items-center gap-12 lg:grid-cols-[1.05fr_1fr] lg:gap-16">
-          <Reveal className="relative">
+          <div className="relative">
             <div className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-background-muted sm:aspect-[4/3] lg:aspect-[4/5]">
               <Image
                 src={imageUrl("photo-1550226891-ef816aed4a98", 1000)}
@@ -36,9 +35,9 @@ export default function OurStory() {
                 />
               </div>
             </div>
-          </Reveal>
+          </div>
 
-          <Reveal delay={120}>
+          <div>
             <p className="flex items-center gap-3 text-overline text-accent">
               <span className="h-px w-8 bg-accent" aria-hidden="true" />
               Our Story
@@ -58,7 +57,7 @@ export default function OurStory() {
                 Founder & Creative Director, Arvello
               </p>
             </div>
-          </Reveal>
+          </div>
         </div>
       </Container>
     </section>
