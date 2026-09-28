@@ -16,14 +16,14 @@ export default function FlashSaleSection() {
               out.
             </p>
           </div>
-          <CountdownTimer endAt="2026-12-31T23:59:59.000Z" />
+          {flashDeals[0]?.dealEndsAt ? <CountdownTimer endAt={flashDeals[0].dealEndsAt} /> : null}
         </div>
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {flashDeals.map((item) => (
             <div key={item.id} className="relative">
               <ProductCard
                 product={item}
-                href={`/products/${item.productId}`}
+                href={`/shop?category=${encodeURIComponent(item.category)}`}
               />
               <p className="mt-2 text-center text-label-sm text-accent">
                 Only {item.stockLeft} left

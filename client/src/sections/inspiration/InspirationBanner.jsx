@@ -7,8 +7,8 @@ export default function InspirationBanner() {
     <div className="py-8 lg:py-12">
       <HeroBanner
         eyebrow="Ideas for modern living"
-        title="Inspiration"
-        description="Thoughtful rooms, styling notes, and stories to help you make home your own."
+        title="Ideas for Beautiful Spaces"
+        description="Explore furniture ideas, room inspiration and styling stories designed to help you create a space that feels like home."
         image={imageUrl("photo-1618220179428-22790b461013", 1200)}
         imageAlt="Warm modern interior filled with considered furniture"
         imagePriority

@@ -6,7 +6,6 @@ import {
   BundleDeals,
   ClearanceSection,
   DealBenefits,
-  DealNewsletterCTA,
 } from "@/sections/deal";
 
 export default function Deal() {
@@ -19,7 +18,6 @@ export default function Deal() {
       <BundleDeals />
       <ClearanceSection />
       <DealBenefits />
-      <DealNewsletterCTA />
     </>
   );
 }

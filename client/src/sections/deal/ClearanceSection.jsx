@@ -18,7 +18,7 @@ export default function ClearanceSection() {
             <div key={item.id}>
               <ProductCard
                 product={{ ...item, badge: "Final Sale" }}
-                href={`/products/${item.productId}`}
+                href={`/shop?category=${encodeURIComponent(item.category)}`}
               />
               <p className="mt-2 text-center text-label-sm text-accent">
                 Only {item.stockLeft} left
