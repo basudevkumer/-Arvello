@@ -7,9 +7,10 @@ import Badge from "@/components/ui/Badge";
 import Button from "@/components/ui/Button";
 import PriceTag from "@/components/ui/PriceTag";
 import RatingStars from "@/components/ui/RatingStars";
+import StockStatus from "./StockStatus";
 
 export default function ProductCard({ product, href, onAddToCart, onWishlist, isWishlisted = false, className = "" }) {
-  const { id, name, image, imageAlt, category, price, previousPrice, rating, reviewCount, badge, stockStatus = "in-stock" } = product;
+  const { id, name, image, imageAlt, category, price, previousPrice, rating, reviewCount, badge, stockStatus = "in-stock", stockQuantity } = product;
   const productHref = href || `/products/${id}`;
   const canBuy = stockStatus !== "out-of-stock";
 
@@ -20,6 +21,7 @@ export default function ProductCard({ product, href, onAddToCart, onWishlist, is
           <Image src={image} alt={imageAlt || name} width={800} height={600} sizes="(min-width: 1280px) 280px, (min-width: 768px) 30vw, 50vw" className="aspect-[4/3] w-full object-cover transition-transform duration-350 group-hover:scale-105 motion-reduce:transform-none motion-reduce:transition-none" />
         </Link>
         {badge ? <Badge variant="sale" className="absolute left-3 top-3">{badge}</Badge> : null}
+        {stockStatus === "low-stock" ? <span className="badge absolute bottom-3 left-3 bg-accent-light text-text-primary"><StockStatus status={stockStatus} quantity={stockQuantity} /></span> : null}
         {onWishlist ? <button type="button" onClick={() => onWishlist(product)} aria-pressed={isWishlisted} aria-label={`${isWishlisted ? "Remove" : "Add"} ${name} ${isWishlisted ? "from" : "to"} wishlist`} className="absolute right-3 top-3 rounded-full bg-surface p-2 text-primary shadow-sm transition-theme hover:bg-primary hover:text-text-inverse motion-reduce:transition-none"><FiHeart size={18} className={isWishlisted ? "fill-current" : ""} aria-hidden="true" /></button> : null}
       </div>
       <div className="grid gap-3 p-4">

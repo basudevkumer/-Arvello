@@ -8,7 +8,10 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import Container from "@/components/layout/Container";
-import { imageUrl } from "./data";
+import { homeProducts, imageUrl } from "./data";
+
+const reviewCount = homeProducts.reduce((total, product) => total + (product.reviewCount || 0), 0);
+const averageRating = (homeProducts.reduce((total, product) => total + (product.rating || 0), 0) / homeProducts.length).toFixed(1);
 
 const testimonials = [
   {
@@ -82,6 +85,11 @@ export default function Testimonials() {
           <p className="mt-3 text-body-md text-text-secondary">
             Trusted by thousands of happy homeowners.
           </p>
+        </div>
+        <div className="mx-auto mt-8 grid max-w-3xl grid-cols-3 divide-x divide-border rounded-xl border border-border bg-surface py-4 text-center">
+          <div><p className="text-h4 text-primary">{averageRating}/5</p><p className="mt-1 text-caption text-text-muted">Average rating</p></div>
+          <div><p className="text-h4 text-primary">{reviewCount}</p><p className="mt-1 text-caption text-text-muted">Product reviews</p></div>
+          <div><p className="text-h4 text-primary">{testimonials.length}</p><p className="mt-1 text-caption text-text-muted">Customer stories</p></div>
         </div>
         <div className="relative mx-auto mt-10 max-w-5xl px-0 sm:px-14">
           <Swiper

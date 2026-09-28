@@ -1,4 +1,4 @@
-import { BestDeals, DreamSpaceBanner, FeaturedProducts, Hero, HomeInspiration, Newsletter, PromoBanner, ShopByCategory, Testimonials, WhyChooseUs } from "@/sections/home";
+import { BestDeals, BundleOffer, DreamSpaceBanner, FAQ, FeaturedProducts, Hero, HomeInspiration, Newsletter, PromoBanner, ShopByCategory, Testimonials, WhyChooseUs } from "@/sections/home";
 
 export default function Home() {
   return <>
@@ -6,11 +6,13 @@ export default function Home() {
     <ShopByCategory />
     <FeaturedProducts />
     <PromoBanner />
+    <BundleOffer />
     <WhyChooseUs />
-    <DreamSpaceBanner />
-    <BestDeals />
     <Testimonials />
+    <BestDeals />
+    <DreamSpaceBanner />
     <HomeInspiration />
+    <FAQ />
     <Newsletter />
   </>;
 }

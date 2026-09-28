@@ -28,6 +28,9 @@ export default function DreamSpaceBanner() {
               <Link href="/shop" className="btn btn-accent mt-7">
                 Explore Collection <FiArrowRight className="ml-2" />
               </Link>
+              <Link href="/contact?subject=consultation" className="ml-2 mt-4 inline-flex items-center text-label-md text-text-inverse underline decoration-accent underline-offset-4 hover:text-accent">
+                Book Free Consultation <FiArrowRight className="ml-2" />
+              </Link>
             </div>
           </div>
         </div>
